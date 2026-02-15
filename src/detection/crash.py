@@ -15,6 +15,7 @@ class CrashDetector:
         ]
     )
     _reasons: list[str] = field(default_factory=list)
+    _attached: bool = False
 
     def mark(self, reason: str) -> None:
         if reason not in self._reasons:
@@ -34,6 +35,8 @@ class CrashDetector:
             self.mark(f"http status >=500 observed: {status_code}")
 
     def attach(self, page: Any) -> None:
+        if self._attached:
+            return
         page.on("pageerror", lambda err: self.mark(f"pageerror: {err}"))
         page.on("crash", lambda: self.mark("playwright crash event"))
 
@@ -54,6 +57,7 @@ class CrashDetector:
                 self.observe_http_status(status)
 
         page.on("response", _on_response)
+        self._attached = True
 
     def check(self) -> str | None:
         if not self._reasons:

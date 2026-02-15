@@ -123,6 +123,10 @@ class ChaosAgent:
                 viewport=DEFAULT_VIEWPORT,
                 context_kwargs=context_kwargs,
             )
+            if driver.page is None:
+                raise RuntimeError(
+                    "ChaosAgent requires an active page after driver.start"
+                )
             self.crash_detector.attach(driver.page)
 
             step_idx = 0
