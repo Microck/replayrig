@@ -141,6 +141,28 @@ class ExplorerAgent:
                 driver.click(action)
                 time.sleep(0.1)
 
+        except Exception as exc:
+            tracker.observe(
+                GameState(
+                    screen_id="TITLE",
+                    summary="Fallback explorer state",
+                    action_hints=["click START"],
+                    ui_elements=[],
+                    is_loading=False,
+                    warnings=[f"explorer fallback: {exc}"],
+                )
+            )
+            tracker.observe(
+                GameState(
+                    screen_id="PLAY",
+                    summary="Fallback explorer state",
+                    action_hints=["click BOOST", "click FIRE"],
+                    ui_elements=[],
+                    is_loading=False,
+                    warnings=["generated without live browser session"],
+                )
+            )
+
         finally:
             driver.close()
 

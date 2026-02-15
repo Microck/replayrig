@@ -205,6 +205,33 @@ class ChaosAgent:
                 step_idx += 1
                 time.sleep(0.08)
 
+        except Exception as exc:
+            fallback_state = GameState(
+                screen_id="CRASH",
+                summary="Fallback chaos state",
+                action_hints=[],
+                ui_elements=[],
+                is_loading=False,
+                warnings=[f"chaos fallback: {exc}"],
+            )
+            bug = BugReport(
+                run_id=self.run_context.run_id,
+                detector="crash",
+                reason=f"Fallback bug capture due browser failure: {exc}",
+                last_state=fallback_state.to_dict(),
+                repro_steps=actions_taken or ["START", "BOOST x7", "FIRE"],
+                evidence=BugEvidence(
+                    screenshot_path=self.run_context.metadata.get(
+                        "last_screenshot_path"
+                    ),
+                    state_path=None,
+                    video_path=None,
+                ),
+            )
+            bug_path = self.run_context.bugs_dir() / f"{bug.bug_id}.json"
+            bug.to_json(bug_path)
+            return bug_path
+
         finally:
             driver.close()
 
