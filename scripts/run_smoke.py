@@ -28,6 +28,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--url", default="")
     parser.add_argument("--headless", action="store_true")
+    parser.add_argument("--type-text", default="")
     args = parser.parse_args()
 
     server = None
@@ -35,7 +36,7 @@ def main() -> int:
     if not url:
         server, url = _serve_game_ephemeral()
     else:
-        url = url or TARGET_GAME_URL
+        url = TARGET_GAME_URL if url == "" else url
 
     driver = BrowserGameDriver()
     try:
@@ -43,12 +44,17 @@ def main() -> int:
         # Basic interaction
         driver.click("#startBtn")
         driver.click("#boostBtn")
+        if args.type_text:
+            driver.type(args.type_text)
 
         ts = time.strftime("%Y%m%d-%H%M%S")
         out = Path("artifacts/screenshots") / f"smoke-{ts}.png"
         driver.screenshot(out)
         print(f"OK: wrote screenshot: {out}")
         return 0
+    except Exception as exc:
+        print(f"ERROR: smoke run failed: {exc}")
+        return 2
     finally:
         driver.close()
         if server is not None:

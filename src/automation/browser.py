@@ -14,16 +14,27 @@ class BrowserGameDriver:
         self.page = None
 
     def start(
-        self, url: str, *, headless: bool = True, viewport: Any | None = None
+        self,
+        url: str,
+        *,
+        headless: bool = True,
+        viewport: Any | None = None,
+        context_kwargs: dict[str, Any] | None = None,
     ) -> None:
         self._pw = sync_playwright().start()
         self._browser = self._pw.chromium.launch(headless=headless)
-        context_kwargs: dict[str, Any] = {}
+        merged_context_kwargs: dict[str, Any] = dict(context_kwargs or {})
         if viewport is not None:
-            context_kwargs["viewport"] = viewport
-        self._context = self._browser.new_context(**context_kwargs)
+            merged_context_kwargs.setdefault("viewport", viewport)
+        self._context = self._browser.new_context(**merged_context_kwargs)
         self.page = self._context.new_page()
-        self.page.goto(url, wait_until="domcontentloaded")
+        response = self.page.goto(url, wait_until="domcontentloaded")
+        if response is None:
+            raise RuntimeError(f"Navigation failed for URL: {url}")
+        if response.status >= 400:
+            raise RuntimeError(
+                f"Navigation HTTP status {response.status} for URL: {url}"
+            )
 
     def screenshot(self, path: str | Path) -> str:
         if self.page is None:
@@ -37,7 +48,7 @@ class BrowserGameDriver:
         if self.page is None:
             raise RuntimeError("driver not started")
         if isinstance(target, str):
-            self.page.click(target)
+            self.page.click(target, timeout=5000)
             return
         x, y = target
         self.page.mouse.click(x, y)
@@ -50,9 +61,19 @@ class BrowserGameDriver:
     def close(self) -> None:
         try:
             if self._context is not None:
-                self._context.close()
+                try:
+                    self._context.close()
+                except Exception:
+                    pass
         finally:
             if self._browser is not None:
-                self._browser.close()
+                try:
+                    self._browser.close()
+                except Exception:
+                    pass
             if self._pw is not None:
                 self._pw.stop()
+
+    @property
+    def context(self):
+        return self._context
