@@ -49,6 +49,7 @@
 
   crashBtn.addEventListener("click", () => {
     // Deterministic immediate crash.
+    setState("CRASH");
     throw new Error("DEMO_CRASH: manual crash button clicked");
   });
 
@@ -69,6 +70,7 @@
     log("FIRE");
     if (boosts >= 7) {
       // The deterministic bug path the agents should discover.
+      setState("CRASH");
       throw new Error(`DEMO_CRASH: START -> BOOST x${boosts} -> FIRE`);
     }
     log("Nothing happened... (try BOOST x7)");

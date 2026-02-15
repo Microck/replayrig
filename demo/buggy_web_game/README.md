@@ -2,6 +2,8 @@
 
 This tiny static game is intentionally designed for browser automation.
 
+Visible states used by screenshots: `TITLE`, `PLAY`, and `CRASH`.
+
 ## Serve locally
 
 ```bash
