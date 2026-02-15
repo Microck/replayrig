@@ -13,3 +13,5 @@ DEFAULT_VIEWPORT = {
 
 # Optional selectors so we don't hardcode them in agents later.
 GAME_ROOT_SELECTOR = os.getenv("GAME_ROOT_SELECTOR", "#game-root")
+GAME_STATE_LABEL_SELECTOR = os.getenv("GAME_STATE_LABEL_SELECTOR", "#stateLabel")
+PRIMARY_ACTION_SELECTOR = os.getenv("PRIMARY_ACTION_SELECTOR", "#startBtn")
