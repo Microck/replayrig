@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import os
 import secrets
 import time
 from pathlib import Path
+from typing import Any
 
 
 class SessionRecorder:
@@ -20,6 +20,15 @@ class SessionRecorder:
 
     def screenshot_dir(self, run_id: str) -> Path:
         return self.artifacts_root / "screenshots" / run_id
+
+    def attach_to_context(
+        self, run_id: str, context_kwargs: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
+        kwargs = dict(context_kwargs or {})
+        video_dir = self.video_dir(run_id)
+        video_dir.mkdir(parents=True, exist_ok=True)
+        kwargs["record_video_dir"] = str(video_dir)
+        return kwargs
 
     def capture_screenshot(self, page, run_id: str, label: str) -> Path:
         out_dir = self.screenshot_dir(run_id)
