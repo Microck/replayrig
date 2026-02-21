@@ -21,39 +21,39 @@
 
 ## Logo Prompts
 
-### Prompt 1: Swarm Patrol Mark
+### Prompt 1: Controller Swarm Core
 ```
-pictographic logo for Repatrol, three abstract agent silhouettes arranged in triangular patrol formation with radar sweep element, flat Night Radar Green #0DFFB3 on white, centered, balanced negative space, technical minimal --ar 1:1 --stylize 70 --no gradient shadow 3D photo background
-```
-
-### Prompt 2: Bug Hunter Scope
-```
-abstract geometric logo for Repatrol, crosshair scope with stylized bug target at center, two-color Night Radar Green #0DFFB3 and Alert Amber #FF6B35, centered on white, modernist technical --ar 1:1 --stylize 65 --no gradient shadow 3D photo background
+abstract geometric logo for Repatrol, three distinct roles (Explorer Chaos Reporter) represented by three simple shapes orbiting a minimal game controller D-pad at center, flat Night Radar Green #0DFFB3 on white, centered, balanced negative space, Swiss design --ar 1:1 --stylize 70 --seed 101 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
 ```
 
-### Prompt 3: Agent Swarm Hexagon
+### Prompt 2: Browser Recorder Bug
 ```
-geometric logo for Repatrol, hexagonal honeycomb pattern with three distinct node types representing Explorer Chaos Reporter agents, flat Alert Amber #FF6B35 on white, centered, balanced negative space, technical --ar 1:1 --stylize 75 --no gradient shadow 3D photo background
-```
-
-### Prompt 4: Radar Pulse Ring
-```
-abstract logo for Repatrol, concentric radar pulse rings emanating from central dot, monochromatic Night Radar Green #0DFFB3 on white, centered, balanced negative space, surveillance aesthetic --ar 1:1 --stylize 60 --no gradient shadow 3D photo background
+pictorial logo for Repatrol, simplified browser window frame with a small bug icon centered and a single recording dot in the corner, two-color Deep Slate #1A1F2E with Alert Amber #FF6B35 recording dot, centered on white, bold reduction, developer tool aesthetic --ar 1:1 --stylize 65 --seed 202 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
 ```
 
-### Prompt 5: Code Scan Eye
+### Prompt 3: Play Button + Bug + Issue
 ```
-pictographic logo for Repatrol, stylized eye with horizontal scan line representing continuous game state monitoring, two-color Deep Slate #1A1F2E and Ghost Cyan #4AFFF3 accent, centered on white, modern tech --ar 1:1 --stylize 70 --no gradient shadow 3D photo background
+negative-space logo for Repatrol, play button triangle with a hidden bug silhouette in the negative space and a small "issue" document corner fold, flat Deep Slate #1A1F2E on white, centered, balanced negative space, modernist --ar 1:1 --stylize 72 --seed 303 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
+```
+
+### Prompt 4: Monoline Controller-to-Camera
+```
+monoline logo for Repatrol, continuous single stroke forming a gamepad outline that transitions into a camera frame and back into a single path, precise geometry, flat Night Radar Green #0DFFB3 on white, centered, balanced negative space, technical --ar 1:1 --stylize 66 --seed 404 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
+```
+
+### Prompt 5: Video Evidence Clapper
+```
+geometric logo for Repatrol, clapperboard icon reduced to two rectangles with a tiny bug mark in the lower panel, suggests recorded video evidence of failures, two-color Deep Slate #1A1F2E with Ghost Cyan #4AFFF3 accent stripe, centered on white, balanced negative space, Vignelli-inspired --ar 1:1 --stylize 70 --seed 505 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
 ```
 
 ### Prompt 6: Patrol Path Monogram
 ```
-lettermark logo for Repatrol, letter R formed by patrol path lines with three waypoint markers, flat Night Radar Green #0DFFB3 with Alert Amber #FF6B35 waypoint accents, centered on white, geometric --ar 1:1 --stylize 68 --no gradient shadow 3D photo background
+lettermark logo for Repatrol, stylized R constructed from a racing line/patrol path with three checkpoints (waypoints) and a small flag-like endpoint, flat Night Radar Green #0DFFB3 with Alert Amber #FF6B35 waypoint accents, centered on white, balanced negative space --ar 1:1 --stylize 68 --seed 606 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
 ```
 
-### Prompt 7: Swarm Network Node
+### Prompt 7: Artifact Stack Mark
 ```
-abstract logo for Repatrol, interconnected network nodes forming triangle with central discovery node highlighted, flat Deep Slate #1A1F2E with Ghost Cyan #4AFFF3 connection lines, centered on white, technical minimalist --ar 1:1 --stylize 72 --no gradient shadow 3D photo background
+tech-minimal logo for Repatrol, grid-aligned artifact stack icon (screenshot frame + video frame + issue document) merged into one compact mark, flat Deep Slate #1A1F2E with Ghost Cyan #4AFFF3 accent line, centered on white, architectural, production-ready --ar 1:1 --stylize 64 --seed 707 --no gradient --no drop shadow --no bevel --no 3D --no reflection --no photo --no texture --no background scene --no glow --no complex lighting
 ```
 
 ---
