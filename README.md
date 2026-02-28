@@ -9,7 +9,7 @@
 
 **A Playwright QA swarm that plays your web app until it breaks, then files the bug report for you.**
 
-Repatrol autonomously explores a target web application, stress-tests it through deterministic action sequences, detects crashes and state inconsistencies, captures screenshot and video evidence, and drafts a fully-formatted GitHub issue — all without a human in the loop.
+Repatrol autonomously explores a target web application, stress-tests it through deterministic action sequences, detects crashes and state inconsistencies, captures screenshot and video evidence, and drafts a fully-formatted GitHub issue, all without a human in the loop.
 
 ---
 
@@ -50,16 +50,16 @@ Repatrol autonomously explores a target web application, stress-tests it through
 
 ## Features
 
-- **Zero-config swarm** — one command launches the server, the explorer, and the chaos agent
-- **Deterministic bug discovery** — structured action sequences find the same crash path every time
-- **Coverage tracking** — records which states and actions were reached and when
-- **Screenshot + video evidence** — every explorer step and the final chaos state are captured
-- **GitHub issue drafting** — structured `BugReport` rendered as Markdown, posted or saved locally
-- **Dry-run by default** — safe to run anywhere; pass a real token to open actual issues
-- **Bring your own target** — override `TARGET_GAME_URL` to test any web app, not just the demo
-- **Azure AI Foundry integration** — optional LLM smoke check to verify your Foundry deployment
-- **Two run modes** — `demo` (fast, 6 explorer steps, 7-second chaos) or `soak` (deep, 20 steps, 15-second chaos)
-- **Pure Node.js server** — no external static-file dependency; ships its own HTTP layer
+- **Zero-config swarm** - one command launches the server, the explorer, and the chaos agent
+- **Deterministic bug discovery** - structured action sequences find the same crash path every time
+- **Coverage tracking** - records which states and actions were reached and when
+- **Screenshot + video evidence** - every explorer step and the final chaos state are captured
+- **GitHub issue drafting** - structured `BugReport` rendered as Markdown, posted or saved locally
+- **Dry-run by default** - safe to run anywhere; pass a real token to open actual issues
+- **Bring your own target** - override `TARGET_GAME_URL` to test any web app, not just the demo
+- **Azure AI Foundry integration** - optional LLM smoke check to verify your Foundry deployment
+- **Two run modes** - `demo` (fast, 6 explorer steps, 7-second chaos) or `soak` (deep, 20 steps, 15-second chaos)
+- **Pure Node.js server** - no external static-file dependency; ships its own HTTP layer
 
 ---
 
@@ -226,7 +226,7 @@ artifacts/
 │   └── <run_id>.json          # CoverageSummary for the explorer phase
 ├── runs/
 │   └── <run_id>/
-│       ├── summary.json        # RunSummary — top-level result for this run
+│       ├── summary.json        # RunSummary - top-level result for this run
 │       └── issue_body.md       # Rendered GitHub issue body (Markdown)
 ├── screenshots/
 │   └── <run_id>/
@@ -396,7 +396,7 @@ PWDEBUG=1 npx tsx scripts/run-demo.ts --serve
 
 ### Smoke test (`npm run smoke`)
 
-Asserts that the built-in server starts, the game page loads, the browser can click START and BOOST without error, and a screenshot can be written to disk. Exits 0 on success, 2 on failure. No Playwright fixtures or test runner required — it is a plain TypeScript script.
+Asserts that the built-in server starts, the game page loads, the browser can click START and BOOST without error, and a screenshot can be written to disk. Exits 0 on success, 2 on failure. No Playwright fixtures or test runner required. It is a plain TypeScript script.
 
 ### Foundry smoke (`npm run foundry:smoke`)
 
@@ -408,15 +408,15 @@ Asserts that your Azure AI Foundry deployment responds to a chat-completions req
 
 Issues and pull requests are welcome. Before opening a PR:
 
-1. Run `npm run check` — must exit 0
-2. Run `npm run smoke` — must exit 0
+1. Run `npm run check` (must exit 0)
+2. Run `npm run smoke` (must exit 0)
 3. Keep changes focused; one PR per concern
 
 ---
 
 ## License
 
-Apache-2.0 — see [`LICENSE`](LICENSE).
+Apache-2.0. See [`LICENSE`](LICENSE).
 
 ---
 
