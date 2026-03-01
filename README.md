@@ -9,6 +9,8 @@
 
 **A Playwright QA swarm that plays your web app until it breaks, then files the bug report for you.**
 
+Combining **Replay** and **Patrol**, **Repatrol** deploys an autonomous swarm that relentlessly "patrols" your application by replaying complex user flows until it identifies a failure.
+
 Repatrol autonomously explores a target web application, stress-tests it through deterministic action sequences, detects crashes and state inconsistencies, captures screenshot and video evidence, and drafts a fully-formatted GitHub issue, all without a human in the loop.
 
 ---
